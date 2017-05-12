@@ -1,10 +1,60 @@
 body{
-  background-color: #2f4f4f	 !important;
+  background-color: #fffafa;
 }
 
-.switch {
-  position: relative;
+h1{
+  font-size: 500%;
+  text-align: center;
+}
+
+#Thermo{
+  font-family: lobster;
+}
+
+#stat{
+  font-family: orbitron;
+  font-size: 80%;}
+
+#tempUP{
+    background-color: #fffafa;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+}
+
+#tempDOWN{
+    background-color: #fffafa;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+}
+
+#tempReset{
+  background-color: #fffafa;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
   display: inline-block;
+  font-size: 16px;
+}
+
+
+.switch {
+  position: fixed !important;
+  top: 82%;
+  bottom: 18%;
+  left: 48.05% !important;
+  right: 51.95% !important;
   width: 60px;
   height: 34px;
 }
@@ -15,12 +65,11 @@ body{
 /* The slider */
 .slider {
   position: absolute;
-  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #FF0000;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -38,7 +87,7 @@ body{
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #00ff00;
 }
 
 input:focus + .slider {
@@ -60,9 +109,22 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-#psm-switch{
+div.temperatureDisplay {
+  margin: auto;
+  font-family: Righteous;
+  font-size: 1500%;
   position: relative;
-  top:200px;
+  top: 40%;
+  bottom: 60%;
+  text-align: center;
+}
+
+#psm-switch{
+  position: fixed;
+  bottom: 20%;
+  top: 80%;
+  left: 50%;
+  right: 50%;
 }
 
 .city-display {

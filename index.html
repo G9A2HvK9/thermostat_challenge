@@ -3,14 +3,14 @@
   <head>
       <title>G9A2HvK9 Thermostat Challenge - Makers Academy April 17 Cohort - May 2017</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" type="text/css" href="./css/style.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
 
   <div data-role="page">
     <div data-role="header">
-      <h1>Thermostat</h1>
+      <h1><span id="Thermo">Thermo</span><span id="stat">stat</span></1>
     </div>
 
     <div class="cities" align="center">
@@ -25,17 +25,17 @@
       <p>Lows:<span class="temp_min"></span>&deg;C</p>
     </div>
 
-    <div class="TemperatureDisplay" align="center"></div>
+    <div class="temperatureDisplay"></div>
 
     <div align="center" data-role="main" class="ui-content">
-        <input type="button" name="tempUP" id="tempUP" value="Up" onclick="increaseTemp()">
-        <input type="button" name="tempDOWN" id="tempDOWN" value="Down" onclick="decreaseTemp()">
+        <input type="button" name="tempUP" id="tempUP" value="+" onclick="increaseTemp()">
+        <input type="button" name="tempDOWN" id="tempDOWN" value="-" onclick="decreaseTemp()">
         <br>
-        <input type="button" data-inline="true" value="Reset Temperature" onclick="resetTemp()">
+        <input type="button" data-inline="true" id="tempReset" value="Reset" onclick="resetTemp()">
     </div>
   </div>
 
-  <div id="psm-switch" align="center">
+  <div id="psm-switch" style="text-align: center">
     <label class="switch">
     <input type="checkbox" checked onclick="pSave()">
     <div class="slider round"></div>
@@ -49,11 +49,11 @@
   <script>
       function gettingJSON(){
         $('.city-display').show();
-        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + $(".input-weather").val() + "&APPID=5b09bcf52074c70d63d02d2f8e3f9557",function(json){
+        $.getJSON("http://api.openweathermap.org/data/2.5/weather?q="+ $('.input-weather').val() + "&units=metric&APPID=5b09bcf52074c70d63d02d2f8e3f9557",function(json){
         $(".city").text(JSON.stringify(json.name).replace(/\"/g, ""))
-        $(".temperature").text(JSON.stringify(((json.main.temp - 273.15).toFixed(0))).replace(/\"/g, ""));
-        $(".temp_min").text(JSON.stringify(((json.main.temp_min - 273.15).toFixed(0))).replace(/\"/g, ""));
-        $(".temp_max").text(JSON.stringify(((json.main.temp_max - 273.15).toFixed(0))).replace(/\"/g, ""));
+        $(".temperature").text(JSON.stringify(((json.main.temp).toFixed(0))).replace(/\"/g, ""));
+        $(".temp_min").text(JSON.stringify(((json.main.temp_min).toFixed(0))).replace(/\"/g, ""));
+        $(".temp_max").text(JSON.stringify(((json.main.temp_max).toFixed(0))).replace(/\"/g, ""));
     })
   ;}
   </script>
